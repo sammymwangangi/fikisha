@@ -36,11 +36,20 @@
             </div>
 
             <div>
-                <label for="website" class="block text-sm font-medium text-gray-700">Website</label>
+                <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
                 <div class="mt-1">
-                    <input type="text" name="website" id="website"
+                    <input type="text" name="location" id="location"
                            class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                           v-model="company.website">
+                           v-model="company.location">
+                </div>
+            </div>
+
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                <div class="mt-1">
+                    <input type="text" name="phone" id="phone"
+                           class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                           v-model="company.phone">
                 </div>
             </div>
         </div>
@@ -53,7 +62,7 @@
 </template>
 
 <script>
-import useCompanies from "../../composables/companies";
+import useCustomers from "../../composables/customers";
 import {onMounted} from "vue";
 
 export default {
@@ -65,18 +74,18 @@ export default {
     },
 
     setup(props) {
-        const { errors, company, getCompany, updateCompany } = useCompanies()
+        const { errors, customer, getCustomer, updateCustomer } = useCustomers()
 
-        onMounted(getCompany(props.id))
+        onMounted(getCustomer(props.id))
 
-        const saveCompany = async () => {
-            await updateCompany(props.id)
+        const saveCustomer = async () => {
+            await updateCustomer(props.id)
         }
 
         return {
             errors,
-            company,
-            saveCompany
+            customer,
+            saveCustomer
         }
     }
 }

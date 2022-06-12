@@ -52,27 +52,17 @@
 </template>
 
 <script>
-import useCompanies from "../../composables/companies";
+import useOrders from "../../composables/orders";
 import { onMounted } from "vue";
 
 export default {
     setup() {
-        const { companies, getCompanies, destroyCompany } = useCompanies()
+        const { orders, getOrders } = useOrders()
 
-        onMounted(getCompanies)
-
-        const deleteCompany = async (id) => {
-            if (!window.confirm('Are you sure?')) {
-                return
-            }
-
-            await destroyCompany(id);
-            await getCompanies();
-        }
+        onMounted(getOrders)
 
         return {
-            companies,
-            deleteCompany
+            orders,
         }
     }
 }
