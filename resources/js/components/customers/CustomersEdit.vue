@@ -6,14 +6,14 @@
         </p>
       </div>
     </div>
-    <form class="space-y-6" v-on:submit.prevent="saveCompany">
+    <form class="space-y-6" v-on:submit.prevent="saveCustomer">
         <div class="space-y-4 rounded-md shadow-sm">
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                 <div class="mt-1">
                     <input type="text" name="name" id="name"
                            class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                           v-model="company.name">
+                           v-model="customer.name">
                 </div>
             </div>
 
@@ -22,7 +22,7 @@
                 <div class="mt-1">
                     <input type="text" name="email" id="email"
                            class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                           v-model="company.email">
+                           v-model="customer.email">
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                 <div class="mt-1">
                     <input type="text" name="address" id="address"
                            class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                           v-model="company.address">
+                           v-model="customer.address">
                 </div>
             </div>
 
@@ -40,16 +40,15 @@
                 <div class="mt-1">
                     <input type="text" name="location" id="location"
                            class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                           v-model="company.location">
+                           v-model="customer.location">
                 </div>
             </div>
-
             <div>
                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
                 <div class="mt-1">
                     <input type="text" name="phone" id="phone"
                            class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                           v-model="company.phone">
+                           v-model="customer.phone">
                 </div>
             </div>
         </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Requests\CustomerRequest;
+use App\Http\Resources\CustomerResource;
 
 class CustomerController extends Controller
 {
@@ -15,7 +17,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return CustomerResource::collection(Customer::all());
     }
 
     /**
@@ -24,9 +26,11 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
-        //
+        $customer = Customer::create($request->validated());
+
+        return new CustomerResource($customer);
     }
 
     /**
@@ -37,7 +41,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return new CustomerResource($customer);
     }
 
     /**
@@ -47,9 +51,11 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(CustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->update($request->validated());
+
+        return new CustomerResource($customer);
     }
 
     /**
@@ -60,6 +66,8 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+
+        return response()->noContent();
     }
 }
