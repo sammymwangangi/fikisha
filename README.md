@@ -1,7 +1,7 @@
 ## Installation steps
 
-Composer install
-cp .env.example .env
-php artisan key:generate
-npm install && npm run dev
+Composer install <br>
+cp .env.example .env <br>
+php artisan key:generate <br>
+npm install && npm run dev <br>
 php artisan serve
